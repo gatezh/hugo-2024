@@ -1,0 +1,25 @@
+# Based on https://github.com/gitpod-io/template-hugo/blob/main/.gitpod.yml
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - name: Install Hugo dependencies
+    before: brew install hugo
+    init: echo "Your version of Hugo is `hugo version`"
+    command: hugo server -D -F --baseURL $(gp url 1313) --liveReloadPort=443 --appendPort=false --bind=0.0.0.0
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  - port: 1313
+    onOpen: open-preview
+vscode:
+  extensions:
+    # Front Matter
+    # https://open-vsx.org/extension/eliostruyf/vscode-front-matter
+    - eliostruyf.vscode-front-matter 
+    # Hugo Language and Syntax Support
+    # https://open-vsx.org/extension/budparr/language-hugo-vscode
+    - budparr.language-hugo-vscode
+    # Hugo Helper
+    # https://open-vsx.org/extension/rusnasonov/vscode-hugo
+    - rusnasonov.vscode-hugo
+    # Hugo Snippets
+    # https://open-vsx.org/extension/fivethree/vscode-hugo-snippets
+    - fivethree.vscode-hugo-snippets
